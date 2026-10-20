@@ -1,22 +1,23 @@
+//arduino
 const int   FLEX_PINS[5]      = {A0, A1, A2, A3, A4};
 const int   BAUD_RATE         = 115200;
-const int   SAMPLE_DELAY_MS   = 20;       
+const int   SAMPLE_DELAY_MS   = 20;
 
 
-const int   CALIB_SAMPLES     = 100;      
-const float DRIFT_THRESHOLD   = 15.0;     
-const float DRIFT_ALPHA       = 0.002;    
-const float NOISE_ALPHA       = 0.1;      
-const float SPIKE_MULTIPLIER  = 4.0;      
-const int   RECALIB_INTERVAL  = 30000;    
-const int   STILL_WINDOW      = 25;  
-const float STILL_THRESHOLD   = 8.0; 
+const int   CALIB_SAMPLES     = 100;
+const float DRIFT_THRESHOLD   = 15.0;
+const float DRIFT_ALPHA       = 0.002;
+const float NOISE_ALPHA       = 0.1;
+const float SPIKE_MULTIPLIER  = 4.0;
+const int   RECALIB_INTERVAL  = 30000;
+const int   STILL_WINDOW      = 25;
+const float STILL_THRESHOLD   = 8.0;
 
-float baseline[5];        
-float smoothed[5];        
-float noise[5];           
-float lastValid[5];       
-bool  sensorOk[5];     
+float baseline[5];
+float smoothed[5];
+float noise[5];
+float lastValid[5];
+bool  sensorOk[5];
 
 
 float recentReadings[5][STILL_WINDOW];
@@ -28,7 +29,7 @@ bool calibrated = false;
 
 
 float readRaw(int pin) {
- 
+
   long sum = 0;
   for (int i = 0; i < 4; i++) sum += analogRead(pin);
   return sum / 4.0;
@@ -70,10 +71,10 @@ void calibrate() {
     baseline[s]   = mean;
     smoothed[s]   = mean;
     lastValid[s]  = mean;
-    noise[s]      = max(sqrt(var), 1.0); 
+    noise[s]      = max(sqrt(var), 1.0);
     sensorOk[s]   = true;
 
-  
+
     for (int i = 0; i < STILL_WINDOW; i++) recentReadings[s][i] = mean;
   }
 
@@ -85,7 +86,7 @@ void calibrate() {
 
 float processSensor(int s, float raw) {
 
-  
+
   float deviation = abs(raw - smoothed[s]);
   float spikeLimit = SPIKE_MULTIPLIER * max(noise[s], 3.0);
 
@@ -99,7 +100,7 @@ float processSensor(int s, float raw) {
 
   noise[s] = noise[s] * (1 - NOISE_ALPHA) + deviation * NOISE_ALPHA;
 
- 
+
   float smoothAlpha = 0.3;
   smoothed[s] = smoothed[s] * (1 - smoothAlpha) + raw * smoothAlpha;
   lastValid[s] = smoothed[s];
@@ -107,7 +108,7 @@ float processSensor(int s, float raw) {
 
   recentReadings[s][ringIdx] = smoothed[s];
 
- 
+
   if (sensorIsStill(s)) {
     float drift = smoothed[s] - baseline[s];
     if (abs(drift) > DRIFT_THRESHOLD) {
@@ -117,7 +118,7 @@ float processSensor(int s, float raw) {
       Serial.println(drift, 1);
     }
 
- 
+
     baseline[s] = baseline[s] * (1 - DRIFT_ALPHA) + smoothed[s] * DRIFT_ALPHA;
   }
 
@@ -145,7 +146,7 @@ void printReadings(float* readings) {
 
 
 
-void checkAutoRecalib() {  
+void checkAutoRecalib() {
   bool allStill = true;
   for (int s = 0; s < 5; s++) {
     if (!sensorIsStill(s)) { allStill = false; break; }
@@ -154,7 +155,7 @@ void checkAutoRecalib() {
   if (allStill) {
     for (int s = 0; s < 5; s++) {
       float drift = smoothed[s] - baseline[s];
-      if (abs(drift) > DRIFT_THRESHOLD) { 
+      if (abs(drift) > DRIFT_THRESHOLD) {
         baseline[s] += drift * 0.1;
       }
     }
@@ -184,7 +185,7 @@ void loop() {
   ringIdx = (ringIdx + 1) % STILL_WINDOW;
   printReadings(readings);
 
-  
+
   if (millis() - lastRecalibCheck > RECALIB_INTERVAL) {
     checkAutoRecalib();
     lastRecalibCheck = millis();
