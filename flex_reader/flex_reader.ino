@@ -1,6 +1,6 @@
 //arduino
 const int   FLEX_PINS[5]      = {A0, A1, A2, A3, A4};
-const int   BAUD_RATE         = 115200;
+const int   BAUD_RATE         = 9600;
 const int   SAMPLE_DELAY_MS   = 20;
 
 
@@ -52,7 +52,7 @@ bool sensorIsStill(int s) {
 }
 
 
-
+//Calibration function at startup 
 void calibrate() {
   Serial.println("STATUS:CALIBRATING");
 
