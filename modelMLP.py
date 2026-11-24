@@ -2,9 +2,6 @@ import torch
 import torch.nn as nn
 
 class FlexGloveMLP(nn.Module):
-    """
-    Buffered input MLP
-    """
     def __init__(self, num_sensors: int, window_size: int, num_classes: int):
         super().__init__()
         self.num_sensors = num_sensors

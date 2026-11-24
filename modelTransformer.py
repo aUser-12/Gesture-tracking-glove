@@ -2,12 +2,6 @@ import torch
 import torch.nn as nn
 
 class FlexGloveTransformer(nn.Module):
-    """
-    Lightweight Transformer Encoder classifier for flex glove gestures.
-    Drop-in replacement for CNN, RNN, or MLP.
-    Input:  (batch, window_size, num_sensors) -> e.g., (1, 30, 5)
-    Output: (batch, num_classes) logits -> e.g., (1, 50)
-    """
     def __init__(self, num_sensors: int, window_size: int, num_classes: int):
         super().__init__()
         self.num_sensors = num_sensors

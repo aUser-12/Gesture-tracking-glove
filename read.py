@@ -23,7 +23,7 @@ class FlexSensorApp:
         # Baud rate input
         ttk.Label(root, text="Baud Rate:").pack(pady=(10, 0))
         self.baud_entry = ttk.Entry(root)
-        self.baud_entry.insert(0, "9600")
+        self.baud_entry.insert(0, 9600)
         self.baud_entry.pack()
 
         # Five flex sensor labels
