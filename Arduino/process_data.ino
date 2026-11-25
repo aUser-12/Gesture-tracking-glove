@@ -52,7 +52,7 @@ bool sensorIsStill(int s) {
 }
 
 
-//Calibration function at startup 
+
 void calibrate() {
   Serial.println("STATUS:CALIBRATING");
 
