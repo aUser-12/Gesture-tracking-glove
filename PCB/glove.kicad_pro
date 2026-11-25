@@ -257,7 +257,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "test.kicad_pro",
+    "filename": "glove.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -425,18 +425,18 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "test.kicad_sch",
-        "name": "test",
+        "filename": "glove.kicad_sch",
+        "name": "glove",
         "uuid": "c7112bda-37c5-4d65-8841-31f33a75a7e2"
       }
     ],
-    "used_designators": "A1,C1-5,R1-15,U1",
+    "used_designators": "#PWR1-7,A1,C1-5,J1-5,R1-15,U1-3",
     "variants": []
   },
   "sheets": [
     [
       "c7112bda-37c5-4d65-8841-31f33a75a7e2",
-      "test"
+      "glove"
     ]
   ],
   "text_variables": {},
