@@ -9,7 +9,7 @@
 		(in_pos_files yes)
 		(duplicate_pin_numbers_are_jumpers no)
 		(property "Reference" "U"
-			(at 0 0 0)
+			(at 0 -0.254 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -67,11 +67,58 @@
 				(end 6.35 -11.43)
 				(stroke
 					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -2.54 10.16)
+				(end 2.54 7.62)
+				(stroke
+					(width 0)
 					(type solid)
 				)
 				(fill
 					(type color)
-					(color 75 146 33 1)
+					(color 255 254 126 1)
+				)
+			)
+			(rectangle
+				(start -2.54 -7.62)
+				(end 2.54 -10.16)
+				(stroke
+					(width 0)
+					(type solid)
+				)
+				(fill
+					(type color)
+					(color 255 254 126 1)
+				)
+			)
+			(polyline
+				(pts
+					(xy 1.27 6.35) (xy 1.27 3.81) (xy -1.27 2.54) (xy -1.27 -2.54) (xy 1.27 -3.81) (xy 1.27 -6.35)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 1.27 1.27) (xy 1.27 -1.27)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
 				)
 			)
 			(pin power_in line
@@ -93,7 +140,7 @@
 				)
 			)
 			(pin power_in line
-				(at 0 11.43 270)
+				(at -8.89 7.62 0)
 				(length 2.54)
 				(name "3V3"
 					(effects
@@ -111,7 +158,7 @@
 				)
 			)
 			(pin power_in line
-				(at 0 -11.43 90)
+				(at -8.89 5.08 0)
 				(length 2.54)
 				(name "GND"
 					(effects
