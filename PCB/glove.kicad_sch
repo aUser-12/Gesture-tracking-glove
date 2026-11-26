@@ -64,6 +64,30 @@
 					)
 				)
 			)
+			(symbol "BMI323_IMU_0_1"
+				(circle
+					(center 5.08 10.16)
+					(radius 1.27)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 5.08 -10.16)
+					(radius 1.27)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
 			(symbol "BMI323_IMU_1_1"
 				(rectangle
 					(start -6.35 11.43)
@@ -827,33 +851,9 @@
 				)
 			)
 			(symbol "TPS631000_Buck_Boost_0_1"
-				(polyline
-					(pts
-						(xy 1.27 3.81) (xy 3.81 3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
 				(circle
 					(center 2.54 0)
 					(radius 1.27)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 3.81 -3.81) (xy 1.27 -3.81)
-					)
 					(stroke
 						(width 0)
 						(type default)
@@ -1578,7 +1578,7 @@
 						)
 					)
 				)
-				(pin output line
+				(pin power_in line
 					(at 17.78 13.97 270)
 					(length 2.54)
 					(name "3.3v"
@@ -2105,6 +2105,121 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "power:PWR_FLAG"
+			(power global)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#FLG"
+				(at 0 1.905 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "PWR_FLAG"
+				(at 0 3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Special symbol for telling ERC where power comes from"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "flag power"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "PWR_FLAG_0_0"
+				(pin power_out line
+					(at 0 0 90)
+					(length 0)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "PWR_FLAG_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 1.27) (xy -1.016 1.905) (xy 0 2.54) (xy 1.016 1.905) (xy 0 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 	)
 	(junction
 		(at 180.34 74.93)
@@ -2231,6 +2346,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e2df94d2-f853-4a5b-8412-b2d45ee03c65")
+	)
+	(junction
+		(at 106.68 74.93)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e652dcaa-6177-4bbf-9990-acafb74ca63a")
 	)
 	(junction
 		(at 168.91 58.42)
@@ -2440,7 +2561,7 @@
 	)
 	(wire
 		(pts
-			(xy 100.33 74.93) (xy 111.76 74.93)
+			(xy 100.33 74.93) (xy 106.68 74.93)
 		)
 		(stroke
 			(width 0)
@@ -2687,6 +2808,16 @@
 			(type default)
 		)
 		(uuid "607f0373-fff6-4d09-a1e5-b6c2fb1b64e1")
+	)
+	(wire
+		(pts
+			(xy 106.68 74.93) (xy 111.76 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "62d1110b-9721-4638-8ca6-a16a9dc6eee0")
 	)
 	(wire
 		(pts
@@ -3280,7 +3411,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "02647a4e-d4f8-4d67-bd3e-13cffb636c08")
-		(property "Reference" "#PWR04"
+		(property "Reference" "#PWR4"
 			(at 57.15 81.28 0)
 			(hide yes)
 			(show_name no)
@@ -3340,7 +3471,7 @@
 		(instances
 			(project "glove"
 				(path "/c7112bda-37c5-4d65-8841-31f33a75a7e2"
-					(reference "#PWR04")
+					(reference "#PWR4")
 					(unit 1)
 				)
 			)
@@ -3446,7 +3577,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0d5d099e-f703-46fa-9bd6-11e9083ae0fc")
-		(property "Reference" "#PWR02"
+		(property "Reference" "#PWR2"
 			(at 111.76 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -3506,7 +3637,7 @@
 		(instances
 			(project "glove"
 				(path "/c7112bda-37c5-4d65-8841-31f33a75a7e2"
-					(reference "#PWR02")
+					(reference "#PWR2")
 					(unit 1)
 				)
 			)
@@ -3688,7 +3819,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "18e2b2cf-bb3e-41a2-a96e-d036c06d0b3b")
-		(property "Reference" "#PWR08"
+		(property "Reference" "#PWR8"
 			(at 53.34 39.37 0)
 			(hide yes)
 			(show_name no)
@@ -3748,7 +3879,7 @@
 		(instances
 			(project "glove"
 				(path "/c7112bda-37c5-4d65-8841-31f33a75a7e2"
-					(reference "#PWR08")
+					(reference "#PWR8")
 					(unit 1)
 				)
 			)
@@ -3766,25 +3897,23 @@
 		(dnp no)
 		(uuid "1d445c9b-a239-4c2a-86f3-224419cd95b4")
 		(property "Reference" "J5"
-			(at 180.594 61.722 0)
+			(at 185.42 63.5 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "Flex Sensor"
-			(at 179.578 63.5 0)
+		(property "Value" "Flex"
+			(at 185.42 71.12 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -4093,25 +4222,23 @@
 		(dnp no)
 		(uuid "41e6e79d-6ef3-4c1e-a536-12a6ef5ee0c0")
 		(property "Reference" "J2"
-			(at 112.014 61.722 0)
+			(at 116.84 63.5 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "Flex Sensor"
-			(at 110.998 63.5 0)
+		(property "Value" "Flex"
+			(at 116.84 71.12 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -4256,7 +4383,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4df104fa-aaa0-4906-ba83-e6412be15bd9")
-		(property "Reference" "#PWR09"
+		(property "Reference" "#PWR9"
 			(at 48.26 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -4316,7 +4443,7 @@
 		(instances
 			(project "glove"
 				(path "/c7112bda-37c5-4d65-8841-31f33a75a7e2"
-					(reference "#PWR09")
+					(reference "#PWR9")
 					(unit 1)
 				)
 			)
@@ -4334,7 +4461,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "64bc1a74-d4a7-45e5-a001-d0b72e985f5a")
-		(property "Reference" "#PWR01"
+		(property "Reference" "#PWR1"
 			(at 111.76 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -4394,7 +4521,7 @@
 		(instances
 			(project "glove"
 				(path "/c7112bda-37c5-4d65-8841-31f33a75a7e2"
-					(reference "#PWR01")
+					(reference "#PWR1")
 					(unit 1)
 				)
 			)
@@ -4412,25 +4539,23 @@
 		(dnp no)
 		(uuid "708eb3e8-60a3-4377-b19e-4adaad636399")
 		(property "Reference" "J4"
-			(at 157.734 61.722 0)
+			(at 162.56 63.5 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "Flex Sensor"
-			(at 156.718 63.5 0)
+		(property "Value" "Flex"
+			(at 162.56 71.12 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -4738,25 +4863,23 @@
 		(dnp no)
 		(uuid "7d544eb0-ff64-445d-8388-8df7e12d4244")
 		(property "Reference" "J1"
-			(at 54.356 38.862 0)
+			(at 49.53 40.64 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "JST"
-			(at 55.372 40.64 0)
+		(property "Value" "Conn_01x02_Socket"
+			(at 49.53 48.26 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -4983,7 +5106,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8d748097-ca73-4e7a-ac53-0a2b87ca9e14")
-		(property "Reference" "#PWR06"
+		(property "Reference" "#PWR6"
 			(at 43.18 82.55 0)
 			(hide yes)
 			(show_name no)
@@ -5043,7 +5166,7 @@
 		(instances
 			(project "glove"
 				(path "/c7112bda-37c5-4d65-8841-31f33a75a7e2"
-					(reference "#PWR06")
+					(reference "#PWR6")
 					(unit 1)
 				)
 			)
@@ -5061,25 +5184,23 @@
 		(dnp no)
 		(uuid "95765f40-8873-4ba1-80d5-c2543740987a")
 		(property "Reference" "J3"
-			(at 134.874 61.722 0)
+			(at 139.7 63.5 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "Flex Sensor"
-			(at 133.858 63.5 0)
+		(property "Value" "Flex"
+			(at 139.7 71.12 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -5211,6 +5332,84 @@
 		)
 	)
 	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 106.68 74.93 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a84f7942-81c3-4a75-b432-11d065a9c5b4")
+		(property "Reference" "#FLG01"
+			(at 106.68 73.025 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 106.68 69.85 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 106.68 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 106.68 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 106.68 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "97067193-58b6-483a-9310-2ea35fd12c0d")
+		)
+		(instances
+			(project "glove"
+				(path "/c7112bda-37c5-4d65-8841-31f33a75a7e2"
+					(reference "#FLG01")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Conn_01x02_Socket")
 		(at 208.28 67.31 0)
 		(unit 1)
@@ -5222,25 +5421,23 @@
 		(dnp no)
 		(uuid "aeaa70e8-a26d-41bc-9022-105de8c86ab9")
 		(property "Reference" "J6"
-			(at 203.454 62.992 0)
+			(at 208.28 64.77 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "Flex Sensor"
-			(at 202.438 64.77 0)
+		(property "Value" "Flex"
+			(at 208.28 72.39 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -5387,25 +5584,23 @@
 		(fields_autoplaced yes)
 		(uuid "b1dc299c-131e-4d8c-8c5b-93ac75ba1a60")
 		(property "Reference" "U2"
-			(at 24.13 87.6299 0)
+			(at 31.75 72.39 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Value" "BMI323"
-			(at 24.13 90.1699 0)
+			(at 31.75 74.93 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -5489,7 +5684,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bb6a26e3-ea46-42dd-a84e-e28502c1bb1f")
-		(property "Reference" "#PWR03"
+		(property "Reference" "#PWR3"
 			(at 91.44 81.28 0)
 			(hide yes)
 			(show_name no)
@@ -5549,7 +5744,7 @@
 		(instances
 			(project "glove"
 				(path "/c7112bda-37c5-4d65-8841-31f33a75a7e2"
-					(reference "#PWR03")
+					(reference "#PWR3")
 					(unit 1)
 				)
 			)
@@ -5567,7 +5762,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bd6d76e6-06d1-4387-b3fd-d6454796b212")
-		(property "Reference" "#PWR07"
+		(property "Reference" "#PWR7"
 			(at 43.18 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -5627,7 +5822,7 @@
 		(instances
 			(project "glove"
 				(path "/c7112bda-37c5-4d65-8841-31f33a75a7e2"
-					(reference "#PWR07")
+					(reference "#PWR7")
 					(unit 1)
 				)
 			)
@@ -5887,7 +6082,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e55cb1ad-46d8-452b-a17c-685a0a0f0146")
-		(property "Reference" "#PWR05"
+		(property "Reference" "#PWR5"
 			(at 55.88 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -5947,7 +6142,7 @@
 		(instances
 			(project "glove"
 				(path "/c7112bda-37c5-4d65-8841-31f33a75a7e2"
-					(reference "#PWR05")
+					(reference "#PWR5")
 					(unit 1)
 				)
 			)
